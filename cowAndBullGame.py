@@ -54,9 +54,10 @@ def cow_and_bull_game(length,guesses):
         cows = 0
         bulls = 0
         count += 1
+        
 def length():
     """
-    This function returns length of the random number from user.
+    This function returns the length of the random number from user.
     """
     for i in range(0,5):
         length = int(input("Enter the length of number less than or equal to 5: "))
@@ -71,7 +72,7 @@ def length():
 
 def guesses():
     """
-    This function returns length of the random number from user.
+    This function returns the number of guesses from user.
     """
     for i in range(0,5):
         guesses = int(input("Enter the Number of guess you want less than or equal to 10: "))
