@@ -16,27 +16,39 @@ import random
 
 s = "0123456789"
 guess = ""
-length = 4
-guesses = 5
-count, cows, bulls, i, j = 0, 0, 0, 0, 0
-p=[]
-p = random.sample(s,length)
-print(p)
+length = int(input("Enter the length of number: "))
+guesses = int(input("Enter the Number of guess you want: "))
+count, cows, bulls = 0, 0, 0
+num=[]
+num = random.sample(s,length)
+# print(num)
 while count < guesses:
-    guess = list(input("Guess any 4 digit number: "))
-    print(guess)
-    for i in range(0,4):
-        while j < 4:
-            if p[i] == guess[j]:
-                print(p[i])
-                print(guess[j])
-                cows += 1
-            else:
-                print(p[i])
-                print(guess[j])
-                bulls += 1
-            j += 1
-    print("Cows: "+ str(cows) + " Bulls: "+ str(bulls))
+    print("Guess "+ str(count+1)+ " out of " + str(guesses))
+    guess = list(input("Enter any "+str(length)+" digit number: "))
+    # print(guess)
+    if num == guess:
+        cows = len(num)
+        bulls = 0
+        count = guesses
+    else:
+        for i in range(0,length):
+            for j in range(0,length):
+                if num[i] == guess[j]:
+                    # print("IF num: " + num[i] + " guess: " +guess[j])
+                    if i == j:
+                        cows += 1
+                    else:
+                        bulls += 1
+                    break
+                j += 1
+            i += 1
+    if cows == length:
+        print("You Guessed Right")
+    else:
+        if count == guesses-1:
+            print("Correct number was: " + "".join(num))
+        else:
+            print("Cows: "+ str(cows) + " Bulls: "+ str(bulls))
     cows = 0
     bulls = 0
     count += 1
